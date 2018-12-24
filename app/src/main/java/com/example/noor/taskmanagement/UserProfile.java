@@ -32,9 +32,9 @@ public class UserProfile extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new FragmentOne(), "ONE");
-        adapter.addFragment(new FragmentOne(), "TWO");
-        adapter.addFragment(new FragmentOne(), "THREE");
+        adapter.addFragment(new FragmentOne(), "Task List");
+        adapter.addFragment(new FragmentOne(), "Task Approval");
+        adapter.addFragment(new FragmentOne(), "Dashboard");
         viewPager.setAdapter(adapter);
     }
 
