@@ -5,17 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/headerBackgroundLL"
+            android:layout_width="match_parent"
+            android:layout_height="320dp"
+            android:background="@color/accent"
+            android:scaleType="fitXY"
+            android:src="@drawable/nitol_niloy_group"/>
 
     <RelativeLayout
         android:id="@+id/rl_one_login"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:gravity="bottom">
 
         <View
             android:id="@+id/v_one_login"
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:background="?attr/colorPrimary" />
+             />
 
         <RelativeLayout
             android:id="@+id/rl_two_login"
@@ -40,7 +52,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_one_login"
-                android:text="NITOL NILOY GROUP Xhdpi"
+                android:text=""
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
@@ -51,14 +63,13 @@
     </RelativeLayout>
 
 
-
+</FrameLayout>
     <LinearLayout
         android:id="@+id/lin_card"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="225dp"
         android:elevation="4dp"
-
         android:visibility="visible">
 
 
@@ -120,7 +131,8 @@
 
             <!--</LinearLayout>-->
 
-            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -134,41 +146,19 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="50dp">
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="52dp"
-                        android:layout_marginTop="10dp"
-                        android:background="@drawable/round_shape" />
-
-                    <TextView
-                        android:id="@+id/text_hint_userid_TV"
-                        android:layout_width="wrap_content"
-                        android:layout_height="2dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginLeft="16dp"
-                        android:paddingLeft="4dp"
-                        android:paddingRight="4dp"
-                        android:text="User ID"
-                        android:textSize="16sp"
-                        android:background="@android:color/white"
-                        android:visibility="invisible"/>
-
                     <android.support.design.widget.TextInputLayout
+
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
-                        android:hint="User ID"
-                        android:textColorHint="@android:color/black"
-                        app:hintTextAppearance="@style/HintTextStyle">
+                        app:errorEnabled="true">
 
-                        <EditText
-                            android:id="@+id/edit_userId_ET"
+                        <android.support.design.widget.TextInputEditText
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="text|textCapWords"
                             android:maxLines="1"
-                            android:backgroundTint="@android:color/transparent"/>
+                            android:hint="User ID" />
                     </android.support.design.widget.TextInputLayout>
                 </RelativeLayout>
 
@@ -178,41 +168,20 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp">
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="52dp"
-                        android:layout_marginTop="10dp"
-                        android:background="@drawable/round_shape" />
-
-                    <TextView
-                        android:id="@+id/text_hint_password_TV"
-                        android:layout_width="wrap_content"
-                        android:layout_height="2dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginLeft="16dp"
-                        android:paddingLeft="4dp"
-                        android:paddingRight="4dp"
-                        android:text="Password"
-                        android:textSize="16sp"
-                        android:background="@android:color/white"
-                        android:visibility="invisible"/>
-
                     <android.support.design.widget.TextInputLayout
+
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
-                        android:hint="Password"
-                        android:textColorHint="@android:color/black"
-                        app:hintTextAppearance="@style/HintTextStyle">
+                        app:errorEnabled="true">
 
-                        <EditText
-                            android:id="@+id/edit_password_ET"
+                        <android.support.design.widget.TextInputEditText
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="textPassword"
                             android:maxLines="1"
-                            android:backgroundTint="@android:color/transparent"/>
+                            android:inputType="numberPassword|textPassword"
+                            android:hint="Password" />
                     </android.support.design.widget.TextInputLayout>
                 </RelativeLayout>
                 <LinearLayout

@@ -1,6 +1,7 @@
 package com.example.noor.taskmanagement;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -11,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +24,8 @@ public class UserProfile extends AppCompatActivity {
     private Toolbar toolbar;
     private TabLayout tabLayout;
     private ViewPager viewPager;
+
+    private ImageView headerBackgroundIV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +39,11 @@ public class UserProfile extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
 
         addNewTaskBTN = findViewById(R.id.btnCreateTask);
+
+
+        headerBackgroundIV =  findViewById(R.id.headerBackgroundLL);
+        Drawable dPage_header= getResources().getDrawable(R.drawable.image);
+        dPage_header.setAlpha(25);
 
         addNewTaskBTN.setOnClickListener(new View.OnClickListener() {
             @Override

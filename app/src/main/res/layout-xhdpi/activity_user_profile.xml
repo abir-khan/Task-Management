@@ -1,8 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#fff">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:id="@+id/headerBackgroundLL"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="@color/colorGrey"
+            android:src="@drawable/image"/>
 
     <LinearLayout
         android:id="@+id/vRevealBackground"
@@ -22,12 +36,15 @@
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
+
         <android.support.design.widget.AppBarLayout
             android:id="@+id/appBarLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+
 
             <android.support.design.widget.CollapsingToolbarLayout
                 android:id="@+id/collapsing_toolbar"
@@ -40,7 +57,6 @@
                     android:id="@+id/vUserProfileRoot"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="?attr/colorPrimary"
                     android:clipChildren="false"
                     android:clipToPadding="false"
                     android:orientation="vertical"
@@ -55,11 +71,10 @@
                         android:layout_height="wrap_content"
                         android:clipChildren="false">
 
-                        <ImageView
+                        <de.hdodenhof.circleimageview.CircleImageView
                             android:id="@+id/ivUserProfilePhoto"
                             android:layout_width="@dimen/user_profile_avatar_size"
                             android:layout_height="@dimen/user_profile_avatar_size"
-                            android:background="@drawable/round_shape"
                             android:src="@drawable/image"
                             android:layout_marginRight="16dp" />
 
@@ -81,7 +96,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="IT"
-                                android:textColor="#bbbbbb"
+                                android:textColor="#ffffff"
                                 android:textSize="12sp" />
 
                             <TextView
@@ -178,20 +193,27 @@
                                 android:textColor="#ffffff"
                                 android:textSize="12sp" />
                         </LinearLayout>
+
                     </LinearLayout>
 
                 </LinearLayout>
+
             </android.support.design.widget.CollapsingToolbarLayout>
+
 
 
             <android.support.design.widget.TabLayout
                 android:id="@+id/tabs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="?attr/colorPrimary"
+                android:background="@color/colorGrey"
                 app:tabMode="fixed"
                 app:tabGravity="fill"/>
+
         </android.support.design.widget.AppBarLayout>
+
+
+
 
         <android.support.v4.view.ViewPager
             android:id="@+id/viewpager"
@@ -200,7 +222,7 @@
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
     </android.support.design.widget.CoordinatorLayout>
 
-
+    </FrameLayout>
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/btnCreateTask"

@@ -7,8 +7,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+
 
 public class FragmentOne extends Fragment {
+
+    private ArrayList<TaskModel> taskModelArrayList;
+    private TaskModel taskModel;
+
 
 
     public FragmentOne() {
