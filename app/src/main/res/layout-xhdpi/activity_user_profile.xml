@@ -6,17 +6,7 @@
     android:orientation="vertical"
     android:background="#fff">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-
-        <ImageView
-            android:id="@+id/headerBackgroundLL"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:background="@color/colorGrey"
-            android:src="@drawable/image"/>
 
     <LinearLayout
         android:id="@+id/vRevealBackground"
@@ -52,6 +42,18 @@
                 android:layout_height="match_parent"
                 app:contentScrim="?attr/colorPrimary"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                <ImageView
+                    android:id="@+id/headerBackgroundLL"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:background="@color/colorGrey"
+                    android:src="@drawable/image"/>
 
                 <LinearLayout
                     android:id="@+id/vUserProfileRoot"
@@ -107,7 +109,7 @@
                                 android:textSize="12sp" />
 
                             <Button
-                                android:id="@+id/btnFollow"
+                                android:id="@+id/workDoneBtn"
                                 android:layout_width="match_parent"
                                 android:layout_height="24dp"
                                 android:layout_marginRight="24dp"
@@ -197,6 +199,7 @@
                     </LinearLayout>
 
                 </LinearLayout>
+                </FrameLayout>
 
             </android.support.design.widget.CollapsingToolbarLayout>
 
@@ -222,7 +225,7 @@
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
     </android.support.design.widget.CoordinatorLayout>
 
-    </FrameLayout>
+
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/btnCreateTask"

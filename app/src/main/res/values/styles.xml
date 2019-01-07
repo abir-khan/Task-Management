@@ -52,4 +52,17 @@
         <item name="android:textColorSecondary">@color/colorWhite</item>
     </style>
 
+
+    <style name="Deferred">
+        <item name="colorAccent">@color/colorAbsent</item>
+    </style>
+
+    <style name="Completed">
+        <item name="colorAccent">@color/colorPresent</item>
+    </style>
+
+    <style name="InProgress">
+        <item name="colorAccent">@color/colorLate</item>
+    </style>
+
 </resources>

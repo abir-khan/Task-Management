@@ -12,7 +12,7 @@ public class TaskModel {
                 ", status=" + status +
                 ", taskType=" + taskType +
                 ", project=" + project +
-                ", submissionDate='" + submissionDate + '\'' +
+                ", startDate='" + startDate + '\'' +
                 ", dueDate='" + dueDate + '\'' +
                 ", estimatedHour=" + estimatedHour +
                 ", completion=" + completion +
@@ -22,21 +22,15 @@ public class TaskModel {
     public TaskModel() {
     }
 
-    public TaskModel(String taskTitle, String targetScore, int kRA, int kPI, int priority, int status, int taskType, int project, String submissionDate, String dueDate, int estimatedHour, int completion) {
-
+    public TaskModel(String taskTitle, String priority, String status, String startDate, String dueDate, String estimatedHour) {
         this.taskTitle = taskTitle;
-        this.targetScore = targetScore;
-        this.kRA = kRA;
-        this.kPI = kPI;
         this.priority = priority;
         this.status = status;
-        this.taskType = taskType;
-        this.project = project;
-        this.submissionDate = submissionDate;
+        this.startDate = startDate;
         this.dueDate = dueDate;
         this.estimatedHour = estimatedHour;
-        this.completion = completion;
     }
+
 
     public String getTaskTitle() {
 
@@ -71,19 +65,19 @@ public class TaskModel {
         this.kPI = kPI;
     }
 
-    public int getPriority() {
+    public String getPriority() {
         return priority;
     }
 
-    public void setPriority(int priority) {
+    public void setPriority(String priority) {
         this.priority = priority;
     }
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -103,12 +97,12 @@ public class TaskModel {
         this.project = project;
     }
 
-    public String getSubmissionDate() {
-        return submissionDate;
+    public String getStartDate() {
+        return startDate;
     }
 
-    public void setSubmissionDate(String submissionDate) {
-        this.submissionDate = submissionDate;
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
     }
 
     public String getDueDate() {
@@ -119,11 +113,11 @@ public class TaskModel {
         this.dueDate = dueDate;
     }
 
-    public int getEstimatedHour() {
+    public String getEstimatedHour() {
         return estimatedHour;
     }
 
-    public void setEstimatedHour(int estimatedHour) {
+    public void setEstimatedHour(String estimatedHour) {
         this.estimatedHour = estimatedHour;
     }
 
@@ -135,10 +129,29 @@ public class TaskModel {
         this.completion = completion;
     }
 
-    String taskTitle;
+    String taskTitle,priority,status;
     String targetScore;
+
+    public int getEsthour() {
+        return esthour;
+    }
+
+    public void setEsthour(int esthour) {
+        this.esthour = esthour;
+    }
+
+    public TaskModel(String taskTitle, String priority, String status, int esthour, String startDate, String dueDate) {
+        this.taskTitle = taskTitle;
+        this.priority = priority;
+        this.status = status;
+        this.esthour = esthour;
+        this.startDate = startDate;
+        this.dueDate = dueDate;
+    }
+
+    int esthour;
     int kRA, kPI;
-    int priority, status, taskType, project;
-    String submissionDate, dueDate;
-    int estimatedHour,completion;
+    int taskType, project;
+    String estimatedHour,startDate, dueDate;
+    int completion;
 }
