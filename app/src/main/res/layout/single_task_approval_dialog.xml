@@ -50,7 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="16sp"
+            android:textSize="12sp"
             android:maxLines="1"
             android:theme="@style/Completed"
             android:text="Complete"/>
@@ -62,9 +62,9 @@
             android:layout_weight="1"
             android:maxLines="1"
             android:checked="true"
-            android:textSize="16sp"
+            android:textSize="12sp"
             android:theme="@style/InProgress"
-            android:text="Absent"/>
+            android:text="In Complete"/>
 
 
 
@@ -73,10 +73,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="16sp"
+            android:textSize="12sp"
             android:maxLines="1"
             android:theme="@style/Deferred"
-            android:text="Late"/>
+            android:text="Deferred"/>
 
     </LinearLayout>
     <View

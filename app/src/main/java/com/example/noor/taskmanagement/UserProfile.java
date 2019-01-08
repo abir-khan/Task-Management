@@ -1,21 +1,31 @@
 package com.example.noor.taskmanagement;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.razerdp.widget.animatedpieview.AnimatedPieView;
+import com.razerdp.widget.animatedpieview.AnimatedPieViewConfig;
+import com.razerdp.widget.animatedpieview.callback.OnPieSelectListener;
+import com.razerdp.widget.animatedpieview.data.IPieInfo;
+import com.razerdp.widget.animatedpieview.data.SimplePieInfo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,6 +55,61 @@ public class UserProfile extends AppCompatActivity {
         addNewTaskBTN = findViewById(R.id.btnCreateTask);
 
         workDoneBtn = findViewById(R.id.workDoneBtn);
+
+        workDoneBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LayoutInflater li = LayoutInflater.from( v.getContext() );
+                final View promptsView = li.inflate( R.layout.single_pie_chart_dialog, null );
+
+                final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder( v.getContext() );
+
+                alertDialogBuilder.setView( promptsView );
+                final AlertDialog alertDialog = alertDialogBuilder.create();
+
+                final AnimatedPieView pieView = promptsView.findViewById(R.id.pieChart);
+                final Button okBtn = promptsView.findViewById(R.id.OkBTN);
+
+
+                AnimatedPieViewConfig config = new AnimatedPieViewConfig();
+                config.addData(new SimplePieInfo(2500,Color.parseColor("#01bcd5"),"Complete"));
+                config.addData(new SimplePieInfo(800,Color.parseColor("#8bdbe6"),"Process"));
+                config.addData(new SimplePieInfo(200,Color.parseColor("#AAFF0000"),"Deferred"));
+
+                config.duration(1500);
+                config.drawText(true);
+                config.strokeMode(false);
+                config.textSize(26);
+                config.selectListener(new OnPieSelectListener<IPieInfo>() {
+                    @Override
+                    public void onSelectPie(@NonNull IPieInfo pieInfo, boolean isFloatUp) {
+                        Toast.makeText(UserProfile.this, pieInfo.getDesc() + " - " + pieInfo.getValue(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+                config.startAngle(-180);
+                config.autoSize(true);
+                config.textMargin(8);
+//                config.pieRadius(100);
+                config.textGravity(AnimatedPieViewConfig.ABOVE);
+                config.canTouch(true);
+                config.splitAngle(1);
+
+                config.focusAlphaType(AnimatedPieViewConfig.FOCUS_WITH_ALPHA_REV);
+
+                pieView.applyConfig(config);
+                pieView.start();
+
+                okBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        alertDialog.cancel();
+                    }
+                });
+
+                alertDialog.show();
+
+            }
+        });
 
 
         headerBackgroundIV =  findViewById(R.id.headerBackgroundLL);
