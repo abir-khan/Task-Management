@@ -46,16 +46,27 @@
                 android:id="@+id/taskTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="3"
                 android:gravity="left|center"
                 android:textStyle="normal"
                 android:text="Softare Development"
                 android:textSize="14sp" />
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_weight="2">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="14dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/ic_equalizer_gray_24dp"/>
+
 
                     <TextView
                         android:id="@+id/taskPriority"
@@ -69,23 +80,34 @@
                         android:paddingRight="4dp"
                         android:textColor="@color/holo_red_light"
                         />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="14dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/progress"/>
+                    <TextView
+                        android:id="@+id/progressTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:paddingRight="4dp"
+                        android:text="Completed"
+                        android:paddingLeft="4dp"
+                        android:textSize="14sp"
+                        android:textColor="@color/holo_green_light"
+                        />
 
-
+                </LinearLayout>
                 </LinearLayout>
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/progressTV"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:layout_weight="1.5"
-                android:maxLines="1"
-                android:text="45"
-                android:paddingLeft="2dp"
-                android:paddingRight="2dp"
-                android:textSize="14sp" />
             <ImageView
                 android:id="@+id/dateWiseAttendanceStudentStatusTV"
                 xmlns:app="http://schemas.android.com/apk/res-auto"

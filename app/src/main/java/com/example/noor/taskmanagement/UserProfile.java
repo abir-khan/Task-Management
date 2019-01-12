@@ -2,9 +2,9 @@ package com.example.noor.taskmanagement;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -21,6 +21,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.nightonke.boommenu.BoomButtons.ButtonPlaceEnum;
+import com.nightonke.boommenu.BoomButtons.OnBMClickListener;
+import com.nightonke.boommenu.BoomButtons.TextOutsideCircleButton;
+import com.nightonke.boommenu.BoomMenuButton;
+import com.nightonke.boommenu.ButtonEnum;
+import com.nightonke.boommenu.Piece.PiecePlaceEnum;
 import com.razerdp.widget.animatedpieview.AnimatedPieView;
 import com.razerdp.widget.animatedpieview.AnimatedPieViewConfig;
 import com.razerdp.widget.animatedpieview.callback.OnPieSelectListener;
@@ -33,13 +39,17 @@ import java.util.List;
 public class UserProfile extends AppCompatActivity {
 
     private static final String TAG = UserProfile.class.getSimpleName();
-    private FloatingActionButton addNewTaskBTN;
+//    private FloatingActionButton addNewTaskBTN;
     private Toolbar toolbar;
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private Button workDoneBtn;
 
     private ImageView headerBackgroundIV;
+    Integer[] image = {R.drawable.ic_add_white_24dp,R.drawable.ic_exit_to_app_white_24dp};
+    String[] name = {"Add Task","Logout"};
+
+    BoomMenuButton addNewTaskBTN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +62,36 @@ public class UserProfile extends AppCompatActivity {
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
 
+
         addNewTaskBTN = findViewById(R.id.btnCreateTask);
+
+        addNewTaskBTN.setPiecePlaceEnum(PiecePlaceEnum.DOT_2_1);
+        addNewTaskBTN.setButtonPlaceEnum(ButtonPlaceEnum.SC_2_1);
+        addNewTaskBTN.setButtonEnum(ButtonEnum.TextOutsideCircle);
+
+        for (int i = 0; i < addNewTaskBTN.getPiecePlaceEnum().pieceNumber(); i++) {
+            TextOutsideCircleButton.Builder builder = new TextOutsideCircleButton.Builder()
+                    .normalImageRes(image[i])
+                    .listener(new OnBMClickListener() {
+                        @Override
+                        public void onBoomButtonClick(int index) {
+                            if (index == 0){
+                                Toast.makeText(UserProfile.this, "Insert New Task", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(UserProfile.this,InsertNewTaskActivity.class));
+                            }else{
+                                Toast.makeText(UserProfile.this, "Logout", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(UserProfile.this,MainActivity.class));
+                            }
+                        }
+                    })
+                    .shadowEffect(true)
+                    .typeface(Typeface.DEFAULT_BOLD)
+                    .textSize(15)
+                    .rippleEffect(true)
+                    .normalText(name[i]);
+            addNewTaskBTN.addBuilder(builder);
+        }
+
 
         workDoneBtn = findViewById(R.id.workDoneBtn);
 
@@ -122,6 +161,8 @@ public class UserProfile extends AppCompatActivity {
 //                startActivity( new Intent( UserProfile.this,InsertNewTaskActivity.class ) );
 //            }
 //        });
+
+
 
         addNewTaskBTN.setOnTouchListener(new View.OnTouchListener() {
             float startX;

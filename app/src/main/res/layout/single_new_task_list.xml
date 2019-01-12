@@ -41,7 +41,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:orientation="vertical"
-                android:paddingLeft="10dp">
+                android:paddingLeft="0dp">
 
                 <TextView
                     android:id="@+id/tasktitle"
@@ -61,48 +61,99 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:layout_marginTop="2dp">
 
-                    <TextView
-                        android:id="@+id/taskPriority"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center_vertical"
-                        android:ellipsize="end"
-                        android:gravity="center"
-                        android:text="Task Priority"
-                        android:maxLines="1"
-                        android:paddingRight="4dp"
-                        android:textColor="@color/holo_red_light"
-                        />
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/taskStatus"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center_vertical"
-                        android:ellipsize="end"
-                        android:gravity="center"
-                        android:text="Task Status"
-                        android:maxLines="1"
-                        android:paddingLeft="4dp"
-                        android:paddingRight="4dp"
-                        android:textColor="@color/bg_events"
-                        />
 
-                    <TextView
-                        android:id="@+id/esestimatedHour"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center_vertical"
-                        android:ellipsize="end"
-                        android:gravity="center"
-                        android:text="Task esestimatedHour"
-                        android:maxLines="1"
-                        android:paddingLeft="4dp"
-                        android:textColor="@color/colorRed"
-                        />
+                        <ImageView
+                            android:layout_width="14dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/ic_equalizer_gray_24dp"/>
 
+                        <TextView
+                            android:id="@+id/taskPriority"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
+                            android:ellipsize="end"
+                            android:gravity="center"
+                            android:maxLines="1"
+                            android:paddingLeft="4dp"
+                            android:paddingRight="4dp"
+                            android:text="Urgent"
+                            android:textSize="13sp"
+                            android:textColor="@color/colorRed"
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:orientation="horizontal"
+                        android:layout_marginRight="3dp">
+
+
+                        <ImageView
+                            android:layout_width="14dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/progress"/>
+
+                        <TextView
+                            android:id="@+id/taskStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
+                            android:ellipsize="end"
+                            android:gravity="center"
+                            android:maxLines="1"
+                            android:paddingLeft="4dp"
+                            android:paddingRight="4dp"
+                            android:text="Someone Else"
+                            android:textSize="13sp"
+                            android:textColor="@color/holo_green_light"
+                            />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.8"
+                        android:orientation="horizontal"
+                        android:layout_marginRight="3dp">
+
+
+                        <ImageView
+                            android:layout_width="14dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/estimated"/>
+
+                        <TextView
+                            android:id="@+id/esestimatedHour"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
+                            android:ellipsize="end"
+                            android:gravity="center"
+                            android:maxLines="1"
+                            android:paddingLeft="4dp"
+                            android:paddingRight="4dp"
+                            android:text="80"
+                            android:textSize="13sp"
+                            android:textColor="@color/colorGreyDarkLight"
+                            />
+
+                    </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
@@ -122,7 +173,7 @@
                         android:layout_width="14dp"
                         android:layout_height="match_parent"
                         android:layout_gravity="center_vertical"
-                        android:src="@drawable/ic_timelapse_grey_600_24dp"/>
+                        android:src="@drawable/start_time"/>
 
                     <TextView
                         android:id="@+id/taskStartDate"
@@ -132,6 +183,7 @@
                         android:ellipsize="end"
                         android:gravity="center"
                         android:maxLines="1"
+                        android:textSize="13sp"
                         android:paddingLeft="4dp"
                         android:paddingRight="4dp"
                         android:text="25 Mar 2018"
@@ -165,29 +217,11 @@
                             android:paddingLeft="4dp"
                             android:paddingRight="4dp"
                             android:text="25 Mar 2018"
+                            android:textSize="13sp"
                             android:textColor="@color/colorGreyDarkLight"
                             />
 
                     </LinearLayout>
-
-                    <!--<ImageView-->
-                    <!--android:layout_width="14dp"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginLeft="6dp"-->
-                    <!--android:src="@drawable/ic_access_time_grey_600_24dp"/>-->
-
-                    <!--<TextView-->
-                    <!--android:id="@+id/homeWorkCreateAt"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="match_parent"-->
-                    <!--android:layout_gravity="center_vertical"-->
-                    <!--android:ellipsize="end"-->
-                    <!--android:gravity="center_vertical"-->
-                    <!--android:maxLines="1"-->
-                    <!--android:paddingLeft="4dp"-->
-                    <!--android:paddingRight="4dp"-->
-                    <!--android:text=": 15 Mar 2018"-->
-                    <!--/>-->
                 </LinearLayout>
             </LinearLayout>
 
@@ -196,93 +230,3 @@
     </android.support.v7.widget.CardView>
 
 </LinearLayout>
-
-<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:orientation="vertical"-->
-    <!--&gt;-->
-
-    <!--<LinearLayout-->
-        <!--android:id="@+id/layout"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="65dp"-->
-        <!--android:orientation="horizontal"-->
-        <!--android:paddingBottom="6dp"-->
-        <!--android:paddingLeft="16dp"-->
-        <!--android:paddingRight="16dp"-->
-        <!--android:paddingTop="6dp">-->
-
-        <!--<de.hdodenhof.circleimageview.CircleImageView-->
-            <!--android:id="@+id/image"-->
-            <!--android:layout_width="55dp"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:layout_alignParentLeft="true"-->
-            <!--android:layout_marginRight="8dp"-->
-            <!--android:scaleType="centerCrop"-->
-            <!--android:layout_gravity="center"-->
-            <!--android:src="@drawable/task"/>-->
-
-        <!--<LinearLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:orientation="vertical"-->
-            <!--android:layout_gravity="center"-->
-            <!--android:paddingLeft="4dp"-->
-            <!--android:paddingRight="4dp">-->
-
-            <!--<TextView-->
-                <!--android:id="@+id/tasktitle"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginBottom="4dp"-->
-                <!--android:ellipsize="end"-->
-                <!--android:maxLines="2"-->
-                <!--android:text="NND task List Mobile Application"-->
-                <!--android:textColor="@color/colorGreyDark"-->
-                <!--android:textSize="14sp"-->
-                <!--/>-->
-
-            <!--<LinearLayout-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:orientation="horizontal"-->
-                <!--android:layout_marginTop="3dp">-->
-                <!--<TextView-->
-                    <!--android:id="@+id/taskStartDate"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="match_parent"-->
-                    <!--android:layout_below="@id/title"-->
-                    <!--android:gravity="bottom"-->
-                    <!--android:maxLines="1"-->
-                    <!--android:text="Start Date"-->
-                    <!--android:textColor="@color/colorPrimary"-->
-                    <!--android:textSize="10sp"-->
-                    <!--android:layout_marginRight="10dp"-->
-                    <!--/>-->
-
-                <!--<TextView-->
-                    <!--android:id="@+id/taskDueDate"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="match_parent"-->
-                    <!--android:layout_below="@id/title"-->
-                    <!--android:gravity="bottom"-->
-                    <!--android:maxLines="1"-->
-                    <!--android:text="Due Date"-->
-                    <!--android:textColor="@color/colorPrimary"-->
-                    <!--android:textSize="10sp"-->
-                    <!--android:layout_marginRight="10dp"-->
-                    <!--/>-->
-
-            <!--</LinearLayout>-->
-        <!--</LinearLayout>-->
-
-
-    <!--</LinearLayout>-->
-    <!--<View-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="2dp"-->
-        <!--android:background="@color/colorGrey" />-->
-
-
-<!--</LinearLayout>-->
